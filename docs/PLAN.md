@@ -48,6 +48,15 @@ No database needed. Pure static site. No Supabase needed.
 
 ## Site Structure & Sections
 
+### 0. Language Switcher (Top-right corner, all pages)
+- Dropdown in the top-right corner of the navigation bar
+- Three options: **English** (default), **Italiano**, **Español**
+- Flags as visual indicators: 🇺🇸 English / 🇮🇹 Italiano / 🇪🇸 Español
+- All visible text content translates when language is selected
+- Language preference saved in localStorage so it persists across visits
+- Uses a `translations.ts` data file with all text in three languages
+- No i18n routing needed — client-side swap only (keeps it simple, no extra pages)
+
 ### 1. Hero Section (Dark → Gradient)
 - Full viewport height
 - Her name **VERONICA FORTUNO SEPUT** in large, bold type
@@ -168,11 +177,15 @@ No database needed. Pure static site. No Supabase needed.
 │   │   ├── Navigation.tsx       ← sticky nav with section links
 │   │   └── SectionWrapper.tsx   ← reusable gradient transition wrapper
 │   ├── data/
-│   │   ├── timeline.ts          ← timeline entries data
+│   │   ├── translations.ts      ← all UI text in en/it/es
+│   │   ├── timeline.ts          ← timeline entries data (trilingual)
 │   │   ├── travel.ts            ← travel locations with coordinates
-│   │   └── experience.ts        ← work & leadership data
+│   │   └── experience.ts        ← work & leadership data (trilingual)
+│   ├── context/
+│   │   └── LanguageContext.tsx   ← React context for active language
 │   └── hooks/
-│       └── useScrollAnimation.ts ← shared scroll-trigger hook
+│       ├── useScrollAnimation.ts ← shared scroll-trigger hook
+│       └── useTranslation.ts    ← hook to get translated strings
 ```
 
 ---
@@ -187,27 +200,28 @@ No database needed. Pure static site. No Supabase needed.
 5. Create `SectionWrapper` component for gradient transitions
 
 ### Phase 2: Static Sections (Top to Bottom)
-6. Build `Navigation` — sticky top bar with smooth-scroll links
-7. Build `Hero` — animated name, cycling subtitle, gradient background
-8. Build `About` — stats counters, personality traits, photo placeholder
-9. Build `Footer` — contact links, resume download, closing statement
+6. Create `LanguageContext`, `useTranslation` hook, and `translations.ts` data file
+7. Build `Navigation` — sticky top bar with smooth-scroll links + language dropdown (top-right)
+8. Build `Hero` — animated name, cycling subtitle, gradient background
+9. Build `About` — stats counters, personality traits, photo placeholder
+10. Build `Footer` — contact links, resume download, closing statement
 
 ### Phase 3: Data-Driven Sections
-10. Create data files (`timeline.ts`, `travel.ts`, `experience.ts`)
-11. Build `Timeline` + `TimelineCard` — horizontal Embla carousel
-12. Build `Experience` — work cards + leadership grid
-13. Build `Languages` — fluency badges + learning indicators
+11. Create data files (`timeline.ts`, `travel.ts`, `experience.ts`) — all with trilingual content
+12. Build `Timeline` + `TimelineCard` — horizontal Embla carousel
+13. Build `Experience` — work cards + leadership grid
+14. Build `Languages` — fluency badges + learning indicators
 
 ### Phase 4: Wow-Factor Sections
-14. Build `TravelGlobe` — COBE globe with location markers + photo grid
-15. Build `RebelBot` — startup spotlight with links and event highlight
-16. Build `Community` — networking narrative + photo grid
+15. Build `TravelGlobe` — COBE globe with location markers + photo grid
+16. Build `RebelBot` — startup spotlight with links and event highlight
+17. Build `Community` — networking narrative + photo grid
 
 ### Phase 5: Polish & Deploy
-17. Add all Framer Motion scroll animations across sections
-18. Responsive testing (mobile-first — employers might open on phone)
-19. SEO metadata (title, description, Open Graph tags)
-20. Deploy to Vercel
+18. Add all Framer Motion scroll animations across sections
+19. Responsive testing (mobile-first — employers might open on phone)
+20. SEO metadata (title, description, Open Graph tags)
+21. Deploy to Vercel
 
 ---
 
@@ -241,3 +255,4 @@ All photo spots will use styled placeholder boxes with labels like "Add photo: T
 | 2026-05-21 | Embla Carousel for timeline | Smooth horizontal slider with swipe support |
 | 2026-05-21 | No domain purchase | Using free Vercel subdomain |
 | 2026-05-21 | No database/Supabase | Pure static site, all content in code |
+| 2026-05-21 | Client-side language switcher (EN/IT/ES) | Veronica is trilingual — site should reflect that; client-side swap keeps it simple with no extra routes |
