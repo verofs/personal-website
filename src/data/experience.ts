@@ -64,13 +64,33 @@ export const workExperience: WorkExperience[] = [
 
 export const leadershipRoles: LeadershipRole[] = [
   {
-    title: { en: "Former Club President", it: "Ex Presidente di Club", es: "Expresidenta de Clubes" },
-    org: "UNLV Student Organizations",
-    dates: { en: "2025 - 2026", it: "2025 - 2026", es: "2025 - 2026" },
+    title: { en: "President", it: "Presidente", es: "Presidenta" },
+    org: "International Business Association",
+    dates: { en: "May 2025 - May 2026", it: "Maggio 2025 - Maggio 2026", es: "Mayo 2025 - Mayo 2026" },
     description: {
-      en: "Founded and led three student clubs - including growing the International Business Association from 3 to 13 members and launching its first trip in years.",
-      it: "Ho fondato e guidato tre club studenteschi, tra cui l'International Business Association, che ho portato da 3 a 13 membri organizzando il primo viaggio dopo anni.",
-      es: "Fundé y dirigí tres clubes estudiantiles, entre ellos la International Business Association, que crecí de 3 a 13 miembros y llevé a su primer viaje en años.",
+      en: "Directed a 9-person executive board, drove 333% growth in paid membership, and created and led \"The Exchange,\" an inaugural networking forum connecting faculty and industry professionals.",
+      it: "Ho guidato un consiglio direttivo di 9 persone, portato la membership pagante a +333% e ideato e diretto \"The Exchange\", il primo forum di networking tra docenti e professionisti del settore.",
+      es: "Dirigí una junta ejecutiva de 9 personas, impulsé un crecimiento del 333% en la membresía de pago y creé y lideré \"The Exchange\", el primer foro de networking entre profesorado y profesionales del sector.",
+    },
+  },
+  {
+    title: { en: "Founding President", it: "Presidente Fondatrice", es: "Presidenta Fundadora" },
+    org: "Artificial Intelligence in Business",
+    dates: { en: "Aug 2025 - May 2026", it: "Agosto 2025 - Maggio 2026", es: "Agosto 2025 - Mayo 2026" },
+    description: {
+      en: "Founded the organization from scratch - its mission, leadership structure, and programming - and led a 5-person board running biweekly workshops on applying AI to real business scenarios.",
+      it: "Ho fondato l'organizzazione da zero - missione, struttura di leadership e programmazione - guidando un consiglio di 5 persone e workshop bisettimanali sull'uso dell'AI in contesti di business reali.",
+      es: "Fundé la organización desde cero - su misión, estructura de liderazgo y programación - y lideré una junta de 5 personas con talleres quincenales sobre cómo aplicar la IA a casos reales de negocio.",
+    },
+  },
+  {
+    title: { en: "President", it: "Presidente", es: "Presidenta" },
+    org: "Bhakti Yoga Club",
+    dates: { en: "Fall 2025 - Present", it: "Autunno 2025 - Oggi", es: "Otoño 2025 - Actualidad" },
+    description: {
+      en: "Overseeing strategy, budgeting, event planning, and marketing for a campus wellness community.",
+      it: "Supervisiono strategia, budget, eventi e marketing per una community di benessere universitaria.",
+      es: "Superviso la estrategia, el presupuesto, los eventos y el marketing de una comunidad de bienestar en el campus.",
     },
   },
   {
@@ -91,6 +111,16 @@ export const leadershipRoles: LeadershipRole[] = [
       en: "Supporting member development and upholding chapter standards within the sorority.",
       it: "Accompagno la crescita delle socie e custodisco i valori del capitolo all'interno della sorority.",
       es: "Acompaño el desarrollo de las miembros y velo por los valores del capítulo dentro de la sororidad.",
+    },
+  },
+  {
+    title: { en: "President", it: "Presidente", es: "Presidenta" },
+    org: "Hispanic Honor Society",
+    dates: { en: "2021 - 2023", it: "2021 - 2023", es: "2021 - 2023" },
+    description: {
+      en: "Led the organization in high school, partnering with Spring Preserve and Animal Sanctuary for community events.",
+      it: "Ho guidato l'organizzazione al liceo, con collaborazioni con Spring Preserve e Animal Sanctuary per eventi con la community.",
+      es: "Lideré la organización en el instituto, colaborando con Spring Preserve y Animal Sanctuary en eventos comunitarios.",
     },
   },
 ];
