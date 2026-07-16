@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { workExperience, leadershipRoles } from "@/data/experience";
+import { workExperience, leadershipRoles, education, courses, awards } from "@/data/experience";
 import { useTranslation } from "@/hooks/useTranslation";
 import SectionWrapper from "./SectionWrapper";
 
@@ -109,6 +109,65 @@ export default function Experience() {
                 <p className="text-xs text-white/62 mt-2">
                   {localize(role.description)}
                 </p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Education, Courses & Awards */}
+      <div className="mt-12 grid md:grid-cols-2 gap-12">
+        <div>
+          <h3 className="font-heading text-xl font-bold text-white mb-6">
+            {localize(t.experience.education)}
+          </h3>
+          <div className="flex flex-col gap-3">
+            {education.map((edu) => (
+              <div key={edu.degree} className="p-4 rounded-xl glass-card">
+                <div className="font-semibold text-white">{edu.degree}</div>
+                <div className="text-sm text-neon-pink font-medium">{localize(edu.detail)}</div>
+                <div className="text-xs text-white/50 mt-1">{edu.school}</div>
+                <div className="text-xs text-white/40">{localize(edu.dates)}</div>
+              </div>
+            ))}
+          </div>
+
+          <h3 className="font-heading text-xl font-bold text-white mt-8 mb-6">
+            {localize(t.experience.courses)}
+          </h3>
+          <div className="flex flex-col gap-3">
+            {courses.map((course) => (
+              <div key={course.name} className="p-4 rounded-xl glass-card">
+                <div className="flex items-start justify-between gap-3">
+                  <div className="font-semibold text-white">{course.name}</div>
+                  <div className="text-xs text-white/40 shrink-0 text-right">{localize(course.dates)}</div>
+                </div>
+                <div className="text-sm text-neon-cyan font-medium">{course.org}</div>
+                <p className="text-xs text-white/62 mt-2">{localize(course.description)}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div>
+          <h3 className="font-heading text-xl font-bold text-white mb-6">
+            {localize(t.experience.awards)}
+          </h3>
+          <div className="grid grid-cols-1 gap-3">
+            {awards.map((award, i) => (
+              <motion.div
+                key={award.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.08 }}
+                className="p-4 rounded-xl glass-card neon-hover-cyan flex items-center gap-4"
+              >
+                <span className="text-2xl shrink-0">{"\u{1F3C6}"}</span>
+                <div>
+                  <div className="font-semibold text-sm text-white">{award.title}</div>
+                  <div className="text-xs text-white/55 mt-1">{localize(award.detail)}</div>
+                </div>
               </motion.div>
             ))}
           </div>

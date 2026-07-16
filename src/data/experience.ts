@@ -113,14 +113,78 @@ export const leadershipRoles: LeadershipRole[] = [
       es: "Acompaño el desarrollo de las miembros y velo por los valores del capítulo dentro de la sororidad.",
     },
   },
+];
+
+export interface EducationEntry {
+  degree: string;
+  detail: LocalizedText;
+  school: string;
+  dates: LocalizedText;
+}
+
+export const education: EducationEntry[] = [
   {
-    title: { en: "President", it: "Presidente", es: "Presidenta" },
-    org: "Hispanic Honor Society",
-    dates: { en: "2021 - 2023", it: "2021 - 2023", es: "2021 - 2023" },
-    description: {
-      en: "Led the organization in high school, partnering with Spring Preserve and Animal Sanctuary for community events.",
-      it: "Ho guidato l'organizzazione al liceo, con collaborazioni con Spring Preserve e Animal Sanctuary per eventi con la community.",
-      es: "Lideré la organización en el instituto, colaborando con Spring Preserve y Animal Sanctuary en eventos comunitarios.",
+    degree: "B.S. in Business Administration",
+    detail: {
+      en: "Double Major: International Business & Marketing",
+      it: "Doppia specializzazione: International Business e Marketing",
+      es: "Doble especialización: International Business y Marketing",
     },
+    school: "University of Nevada, Las Vegas",
+    dates: { en: "Expected December 2026", it: "Laurea prevista dicembre 2026", es: "Graduación prevista diciembre 2026" },
+  },
+];
+
+export interface CourseEntry {
+  name: string;
+  org: string;
+  dates: LocalizedText;
+  description: LocalizedText;
+}
+
+export const courses: CourseEntry[] = [
+  {
+    name: "NSF I-Corps Aspire Program",
+    org: "Desert & Pacific Region",
+    dates: { en: "May - Jun 2025", it: "Maggio - Giugno 2025", es: "Mayo - Junio 2025" },
+    description: {
+      en: "Entrepreneurial development in customer-driven research, business model validation, and Lean Startup principles.",
+      it: "Formazione imprenditoriale su customer discovery, validazione del business model e principi Lean Startup.",
+      es: "Formación emprendedora en customer discovery, validación de modelos de negocio y principios Lean Startup.",
+    },
+  },
+  {
+    name: "SDR Training",
+    org: "StartUp Vegas",
+    dates: { en: "2025", it: "2025", es: "2025" },
+    description: {
+      en: "Sales development training on outreach, qualification, and pipeline building for early-stage startups.",
+      it: "Formazione SDR su outreach, qualificazione dei lead e costruzione della pipeline per startup early-stage.",
+      es: "Formación SDR en prospección, cualificación de leads y construcción de pipeline para startups en fase inicial.",
+    },
+  },
+];
+
+export interface AwardEntry {
+  title: string;
+  detail: LocalizedText;
+}
+
+export const awards: AwardEntry[] = [
+  {
+    title: "President's Innovation Challenge",
+    detail: { en: "Winner 2026 - RebelBot", it: "Vincitrice 2026 - RebelBot", es: "Ganadora 2026 - RebelBot" },
+  },
+  {
+    title: "UNLV Research Symposium",
+    detail: { en: "Recognition - RebelBot student innovation", it: "Riconoscimento - innovazione studentesca RebelBot", es: "Reconocimiento - innovación estudiantil RebelBot" },
+  },
+  {
+    title: "NSF I-Corps Aspire Program",
+    detail: { en: "Selected Participant - Desert & Pacific Region", it: "Partecipante selezionata - Desert & Pacific Region", es: "Participante seleccionada - Desert & Pacific Region" },
+  },
+  {
+    title: "Dean's List Honoree",
+    detail: { en: "University of Nevada, Las Vegas - 2 semesters", it: "University of Nevada, Las Vegas - 2 semestri", es: "University of Nevada, Las Vegas - 2 semestres" },
   },
 ];

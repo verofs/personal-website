@@ -64,6 +64,9 @@ export const translations = {
     },
     professional: { en: "Professional Experience", it: "Esperienza Professionale", es: "Experiencia Profesional" },
     leadership: { en: "Leadership", it: "Leadership", es: "Liderazgo" },
+    education: { en: "Education", it: "Formazione", es: "Formación" },
+    courses: { en: "Courses & Programs", it: "Corsi e Programmi", es: "Cursos y Programas" },
+    awards: { en: "Honors & Awards", it: "Riconoscimenti", es: "Reconocimientos" },
   },
   languagesSection: {
     title: { en: "Languages & Skills", it: "Lingue e Competenze", es: "Idiomas y Habilidades" },
