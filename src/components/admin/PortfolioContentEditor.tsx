@@ -164,6 +164,7 @@ export default function PortfolioContentEditor() {
     setContent((current) => {
       const draft = cloneContent(current);
       if (!draft.images) draft.images = {};
+      if (!draft.imageFocus) draft.imageFocus = {};
       updater(draft);
       return draft;
     });
@@ -171,11 +172,22 @@ export default function PortfolioContentEditor() {
 
   const setImage = (key: string, url: string) =>
     update((draft) => {
-      if (url) draft.images[key] = url;
-      else delete draft.images[key];
+      if (url) {
+        draft.images[key] = url;
+      } else {
+        delete draft.images[key];
+        delete draft.imageFocus[key];
+      }
+    });
+
+  const setImageFocus = (key: string, focus: string) =>
+    update((draft) => {
+      if (focus && focus !== "50% 50%") draft.imageFocus[key] = focus;
+      else delete draft.imageFocus[key];
     });
 
   const images = content.images ?? {};
+  const imageFocus = content.imageFocus ?? {};
   const photoSlots: { key: string; label: string }[] = [
     { key: "about", label: "About - profile photo" },
     { key: "rebelbotEvent", label: "RebelBot - The Exchange event photo" },
@@ -260,7 +272,7 @@ export default function PortfolioContentEditor() {
         </button>
       </SectionEditor>
 
-      <SectionEditor title="Photos" description="Drag & drop a real image into any placeholder on the site." defaultOpen>
+      <SectionEditor title="Photos" description="Drag & drop a real image into any placeholder. Use “Adjust position” to click the part of a photo you want kept in view." defaultOpen>
         <div className="grid gap-5 sm:grid-cols-2">
           {photoSlots.map((slot) => (
             <ImageSlot
@@ -268,6 +280,8 @@ export default function PortfolioContentEditor() {
               label={slot.label}
               value={images[slot.key] ?? ""}
               onChange={(url) => setImage(slot.key, url)}
+              focus={imageFocus[slot.key] ?? ""}
+              onFocusChange={(focus) => setImageFocus(slot.key, focus)}
             />
           ))}
         </div>

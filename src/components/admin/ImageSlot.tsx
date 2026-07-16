@@ -11,13 +11,30 @@ interface ImageSlotProps {
   label: string;
   value: string;
   onChange: (url: string) => void;
+  focus?: string;
+  onFocusChange?: (focus: string) => void;
 }
 
-export default function ImageSlot({ label, value, onChange }: ImageSlotProps) {
+const DEFAULT_FOCUS = "50% 50%";
+
+export default function ImageSlot({ label, value, onChange, focus, onFocusChange }: ImageSlotProps) {
   const [dragging, setDragging] = useState(false);
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState("");
+  const [adjusting, setAdjusting] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
+  const previewRef = useRef<HTMLImageElement>(null);
+
+  const activeFocus = focus && focus.trim() ? focus : DEFAULT_FOCUS;
+
+  const setFocusFromEvent = (event: { clientX: number; clientY: number }) => {
+    const el = previewRef.current;
+    if (!el || !onFocusChange) return;
+    const rect = el.getBoundingClientRect();
+    const x = Math.round(Math.min(100, Math.max(0, ((event.clientX - rect.left) / rect.width) * 100)));
+    const y = Math.round(Math.min(100, Math.max(0, ((event.clientY - rect.top) / rect.height) * 100)));
+    onFocusChange(`${x}% ${y}%`);
+  };
 
   const upload = async (file: File) => {
     if (!ACCEPTED.includes(file.type)) return setError("Use JPG, PNG, or WebP");
@@ -50,23 +67,48 @@ export default function ImageSlot({ label, value, onChange }: ImageSlotProps) {
       <div
         role="button"
         tabIndex={0}
-        onClick={() => inputRef.current?.click()}
-        onKeyDown={(event) => (event.key === "Enter" || event.key === " ") && inputRef.current?.click()}
+        onClick={() => !(adjusting && value) && inputRef.current?.click()}
+        onKeyDown={(event) =>
+          !(adjusting && value) && (event.key === "Enter" || event.key === " ") && inputRef.current?.click()
+        }
         onDragOver={(event) => {
           event.preventDefault();
           setDragging(true);
         }}
         onDragLeave={() => setDragging(false)}
         onDrop={onDrop}
-        className={`relative flex min-h-32 cursor-pointer items-center justify-center overflow-hidden rounded-xl border-2 border-dashed text-center transition ${
-          dragging ? "border-neon-pink bg-neon-pink/10" : "border-white/15 bg-black/25 hover:border-neon-cyan/50"
-        }`}
+        className={`relative flex min-h-32 items-center justify-center overflow-hidden rounded-xl border-2 border-dashed text-center transition ${
+          adjusting && value ? "cursor-crosshair" : "cursor-pointer"
+        } ${dragging ? "border-neon-pink bg-neon-pink/10" : "border-white/15 bg-black/25 hover:border-neon-cyan/50"}`}
       >
         {value ? (
           <>
-            <img src={value} alt={label} className="h-40 w-full object-cover" />
+            <img
+              ref={previewRef}
+              src={value}
+              alt={label}
+              draggable={false}
+              onClick={(event) => {
+                if (adjusting) {
+                  event.stopPropagation();
+                  setFocusFromEvent(event);
+                }
+              }}
+              className="h-40 w-full object-cover"
+              style={{ objectPosition: activeFocus }}
+            />
+            {adjusting && onFocusChange && (
+              <span
+                className="pointer-events-none absolute z-10 h-4 w-4 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-white bg-neon-pink/80 shadow-[0_0_0_2px_rgba(0,0,0,0.5)]"
+                style={{ left: activeFocus.split(" ")[0], top: activeFocus.split(" ")[1] }}
+              />
+            )}
             <span className="absolute bottom-2 right-2 rounded bg-black/70 px-2 py-1 text-[11px] text-white/80">
-              {busy ? "Uploading..." : "Drop or click to replace"}
+              {busy
+                ? "Uploading..."
+                : adjusting
+                  ? "Click the part to keep in view"
+                  : "Drop or click to replace"}
             </span>
           </>
         ) : (
@@ -75,7 +117,25 @@ export default function ImageSlot({ label, value, onChange }: ImageSlotProps) {
           </div>
         )}
       </div>
-      <div className="flex items-center gap-3">
+      <div className="flex flex-wrap items-center gap-3">
+        {value && onFocusChange && (
+          <button
+            type="button"
+            onClick={() => setAdjusting((current) => !current)}
+            className={`text-xs font-medium ${adjusting ? "text-neon-cyan" : "text-white/60 hover:text-white/90"}`}
+          >
+            {adjusting ? "Done positioning" : "Adjust position"}
+          </button>
+        )}
+        {value && onFocusChange && activeFocus !== DEFAULT_FOCUS && (
+          <button
+            type="button"
+            onClick={() => onFocusChange(DEFAULT_FOCUS)}
+            className="text-xs font-medium text-white/50 hover:text-white/80"
+          >
+            Center
+          </button>
+        )}
         {value && (
           <button
             type="button"

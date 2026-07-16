@@ -24,8 +24,9 @@ export default function TimelineMilestone({
   expanded,
   onToggle,
 }: TimelineMilestoneProps) {
-  const { localize, images } = useTranslation();
+  const { localize, images, imageFocus } = useTranslation();
   const photo = images[`timeline.${entry.id}`];
+  const photoFocus = imageFocus[`timeline.${entry.id}`];
   const accent = accents[index % accents.length];
   const side = index % 2 === 0 ? "md:pr-12 md:text-right" : "md:pl-12 md:col-start-2";
 
@@ -72,6 +73,7 @@ export default function TimelineMilestone({
                     src={photo}
                     alt={localize(entry.title)}
                     className="mb-4 h-48 w-full rounded-lg object-cover"
+                    style={{ objectPosition: photoFocus }}
                   />
                 )}
                 <p className="text-sm leading-relaxed text-white/68">

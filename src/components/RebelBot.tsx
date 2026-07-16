@@ -19,7 +19,7 @@ const links = [
 ];
 
 export default function RebelBot() {
-  const { language, t, localize, images } = useTranslation();
+  const { language, t, localize, images, imageFocus } = useTranslation();
   const eventPhoto = images.rebelbotEvent;
 
   return (
@@ -77,7 +77,7 @@ export default function RebelBot() {
         }`}>
           {eventPhoto ? (
             // eslint-disable-next-line @next/next/no-img-element
-            <img src={eventPhoto} alt={localize(t.rebelbot.eventPhoto)} className="h-full w-full object-cover" />
+            <img src={eventPhoto} alt={localize(t.rebelbot.eventPhoto)} className="h-full w-full object-cover" style={{ objectPosition: imageFocus.rebelbotEvent }} />
           ) : (
             localize(t.rebelbot.eventPhoto)
           )}

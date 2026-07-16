@@ -35,9 +35,9 @@ export const defaultGalleryPhotos: GalleryPhoto[] = [
     id: "unlv",
     src: "/images/gallery/unlv.svg",
     caption: {
-      en: "UNLV leadership",
-      it: "Leadership a UNLV",
-      es: "Liderazgo en UNLV",
+      en: "University of Nevada, Las Vegas leadership",
+      it: "Leadership a University of Nevada, Las Vegas",
+      es: "Liderazgo en University of Nevada, Las Vegas",
     },
     category: "leadership",
     aspect: "square",

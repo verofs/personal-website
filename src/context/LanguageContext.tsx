@@ -18,6 +18,7 @@ interface LanguageContextValue {
   translations: SiteTranslations;
   sectionOrder: SectionKey[];
   images: Record<string, string>;
+  imageFocus: Record<string, string>;
 }
 
 const LanguageContext = createContext<LanguageContextValue | null>(null);
@@ -30,6 +31,7 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
   const [translations, setTranslations] = useState<SiteTranslations>(defaultSiteContent.translations);
   const [sectionOrder, setSectionOrder] = useState<SectionKey[]>(defaultSiteContent.sectionOrder);
   const [images, setImages] = useState<Record<string, string>>(defaultSiteContent.images);
+  const [imageFocus, setImageFocus] = useState<Record<string, string>>(defaultSiteContent.imageFocus);
 
   useEffect(() => {
     const savedLanguage = window.localStorage.getItem("portfolio-language");
@@ -45,11 +47,13 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
         setTranslations(content.translations ?? defaultSiteContent.translations);
         setSectionOrder(content.sectionOrder ?? defaultSiteContent.sectionOrder);
         setImages(content.images ?? defaultSiteContent.images);
+        setImageFocus(content.imageFocus ?? defaultSiteContent.imageFocus);
       })
       .catch(() => {
         setTranslations(defaultSiteContent.translations);
         setSectionOrder(defaultSiteContent.sectionOrder);
         setImages(defaultSiteContent.images);
+        setImageFocus(defaultSiteContent.imageFocus);
       });
   }, []);
 
@@ -61,8 +65,8 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
   };
 
   const value = useMemo(
-    () => ({ language, setLanguage, translations, sectionOrder, images }),
-    [language, translations, sectionOrder, images]
+    () => ({ language, setLanguage, translations, sectionOrder, images, imageFocus }),
+    [language, translations, sectionOrder, images, imageFocus]
   );
 
   return (

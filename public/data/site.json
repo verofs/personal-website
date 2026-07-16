@@ -61,17 +61,17 @@
       "subtitles": {
         "en": [
           "Founder of RebelBot",
-          "International Business & Marketing @ UNLV",
+          "International Business & Marketing @ University of Nevada, Las Vegas",
           "AI • startups • global community"
         ],
         "it": [
           "Founder di RebelBot",
-          "International Business & Marketing @ UNLV",
+          "International Business & Marketing @ University of Nevada, Las Vegas",
           "AI • startup • community globale"
         ],
         "es": [
           "Fundadora de RebelBot",
-          "International Business & Marketing @ UNLV",
+          "International Business & Marketing @ University of Nevada, Las Vegas",
           "IA • startups • comunidad global"
         ]
       },
@@ -93,9 +93,9 @@
         "es": "Sobre Mí"
       },
       "body": {
-        "en": "I'm Veronica. I was born in Spain and raised between Italy and the United States, so I learned early to navigate among languages, cultures, and different ways of thinking.\n\nToday, I study International Business & Marketing at UNLV and build projects where AI, business, and people meet. RebelBot is the clearest example: an idea that became a real product by listening to students, organizing a team, and turning a messy problem into something useful.\n\nI’m drawn to ambitious people, new places, and ideas that feel slightly too big at first. That is usually where the interesting part begins.",
-        "it": "Sono Veronica: sono nata in Spagna e cresciuta tra l’Italia e gli Stati Uniti. Questo mi ha insegnato presto a muovermi tra lingue, culture e modi diversi di pensare.\n\nOggi studio International Business & Marketing a UNLV e costruisco progetti dove AI, business e persone si incontrano. RebelBot ne è l’esempio più concreto: un’idea diventata un prodotto reale ascoltando gli studenti, creando un team e trasformando un problema confuso in qualcosa di utile.\n\nMi attirano le persone ambiziose, i posti nuovi e le idee che all’inizio sembrano un po’ troppo grandi. Di solito è lì che inizia la parte interessante.",
-        "es": "Soy Veronica:nací en España y crecí entre Italia y Estados Unidos. Eso me enseñó desde pequeña a moverme entre idiomas, culturas y formas distintas de pensar.\n\nHoy estudio International Business & Marketing en UNLV y construyo proyectos donde se encuentran la IA, los negocios y las personas. RebelBot es el ejemplo más claro: una idea que se convirtió en un producto real escuchando a los estudiantes, formando un equipo y transformando un problema confuso en algo útil.\n\nMe atraen las personas ambiciosas, los lugares nuevos y las ideas que al principio parecen un poco demasiado grandes. Normalmente, ahí empieza lo interesante."
+        "en": "I'm Veronica. I was born in Spain and raised between Italy and the United States, so I learned early to navigate among languages, cultures, and different ways of thinking.\n\nToday, I study International Business & Marketing at University of Nevada, Las Vegas and build projects where AI, business, and people meet. RebelBot is the clearest example: an idea that became a real product by listening to students, organizing a team, and turning a messy problem into something useful.\n\nI’m drawn to ambitious people, new places, and ideas that feel slightly too big at first. That is usually where the interesting part begins.",
+        "it": "Sono Veronica: sono nata in Spagna e cresciuta tra l’Italia e gli Stati Uniti. Questo mi ha insegnato presto a muovermi tra lingue, culture e modi diversi di pensare.\n\nOggi studio International Business & Marketing all'University of Nevada, Las Vegas e costruisco progetti dove AI, business e persone si incontrano. RebelBot ne è l’esempio più concreto: un’idea diventata un prodotto reale ascoltando gli studenti, creando un team e trasformando un problema confuso in qualcosa di utile.\n\nMi attirano le persone ambiziose, i posti nuovi e le idee che all’inizio sembrano un po’ troppo grandi. Di solito è lì che inizia la parte interessante.",
+        "es": "Soy Veronica:nací en España y crecí entre Italia y Estados Unidos. Eso me enseñó desde pequeña a moverme entre idiomas, culturas y formas distintas de pensar.\n\nHoy estudio International Business & Marketing en la University of Nevada, Las Vegas y construyo proyectos donde se encuentran la IA, los negocios y las personas. RebelBot es el ejemplo más claro: una idea que se convirtió en un producto real escuchando a los estudiantes, formando un equipo y transformando un problema confuso en algo útil.\n\nMe atraen las personas ambiciosas, los lugares nuevos y las ideas que al principio parecen un poco demasiado grandes. Normalmente, ahí empieza lo interesante."
       },
       "photo": {
         "en": "Add photo here",
@@ -196,14 +196,14 @@
     },
     "rebelbot": {
       "kicker": {
-        "en": "Student support platform",
-        "it": "Piattaforma di supporto agli studenti",
-        "es": "Plataforma de apoyo estudiantil"
+        "en": "AI STUDENT PLATFORM",
+        "it": "PIATTAFORMA AI PER STUDENTI",
+        "es": "PLATAFORMA DE IA PARA ESTUDIANTES"
       },
       "tagline": {
-        "en": "Campus companion for resources, events, clubs, and support",
-        "it": "Il compagno di campus per risorse, eventi, club e supporto",
-        "es": "El compañero de campus para recursos, eventos, clubes y apoyo"
+        "en": "Helping students find the right resources, events, and people on campus.",
+        "it": "Aiuta gli studenti a trovare risorse, eventi e persone giuste nel campus",
+        "es": "Ayuda a los estudiantes a encontrar recursos, eventos y personas dentro del campus."
       },
       "body": {
         "en": "RebelBot is a student engagement platform designed to help students find campus resources, events, clubs, and peer support more easily. The work is still growing, guided by discovery interviews, pilot feedback, and what students say they actually need.",
@@ -222,7 +222,7 @@
             "Winner 2026"
           ],
           [
-            "UNLV Research Symposium",
+            "University of Nevada, Las Vegas Research Symposium",
             "Award Recipient"
           ],
           [
@@ -231,7 +231,7 @@
           ],
           [
             "Live Pilot Users",
-            "At UNLV"
+            "At University of Nevada, Las Vegas"
           ]
         ],
         "it": [
@@ -240,7 +240,7 @@
             "Vincitrice 2026"
           ],
           [
-            "UNLV Research Symposium",
+            "University of Nevada, Las Vegas Research Symposium",
             "Riconoscimento"
           ],
           [
@@ -249,7 +249,7 @@
           ],
           [
             "Utenti pilota attivi",
-            "Alla UNLV"
+            "Alla University of Nevada, Las Vegas"
           ]
         ],
         "es": [
@@ -258,7 +258,7 @@
             "Ganadora 2026"
           ],
           [
-            "UNLV Research Symposium",
+            "University of Nevada, Las Vegas Research Symposium",
             "Reconocimiento"
           ],
           [
@@ -267,7 +267,7 @@
           ],
           [
             "Usuarios piloto activos",
-            "En la UNLV"
+            "En la University of Nevada, Las Vegas"
           ]
         ]
       },
@@ -478,7 +478,21 @@
     "community.3": "/uploads/images/5d50f9a7-83b6-4c78-93ef-a47bfda2275a.png",
     "timeline.rome": "/uploads/images/3692e048-fdd0-44bf-908d-0ff14b2b77dd.png",
     "timeline.ib-program": "/uploads/images/77456b7c-48cb-4347-b4dd-a31b1d5a3d38.png",
-    "timeline.exchange": "/uploads/images/f25a23d4-1cff-45fe-ae6d-2b6d98c1c91e.png",
-    "timeline.america": "/uploads/images/7f6a568b-947e-43aa-a275-8ddc10dda146.png"
+    "timeline.exchange": "/uploads/images/0d02e753-9156-417e-9248-e914bf6272d2.jpg"
+  },
+  "imageFocus": {
+    "globe.0": "50% 34%",
+    "globe.1": "46% 56%",
+    "globe.3": "51% 11%",
+    "community.0": "29% 26%",
+    "community.2": "50% 20%",
+    "community.3": "52% 56%",
+    "community.4": "53% 26%",
+    "community.5": "52% 53%",
+    "timeline.ib-program": "50% 19%",
+    "timeline.unlv": "55% 6%",
+    "timeline.exchange": "51% 34%",
+    "timeline.rebelbot-born": "51% 54%",
+    "timeline.rebelbot-wins": "53% 73%"
   }
 }

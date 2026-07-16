@@ -83,7 +83,7 @@ export const timelineData: TimelineEntry[] = [
     id: "unlv",
     year: "2023-Present",
     flag: "\u{1F393}",
-    title: { en: "UNLV - Going All In", it: "UNLV - Al Massimo", es: "UNLV - Con Todo" },
+    title: { en: "University of Nevada, Las Vegas - Going All In", it: "University of Nevada, Las Vegas - Al Massimo", es: "University of Nevada, Las Vegas - Con Todo" },
     location: { en: "University of Nevada, Las Vegas", it: "University of Nevada, Las Vegas", es: "University of Nevada, Las Vegas" },
     description: {
       en: "Double major in International Business & Marketing, plus student leadership across clubs, a sorority, and the Lee Student Advisory Board - including growing one club from 3 to 13 members.",
@@ -143,11 +143,11 @@ export const timelineData: TimelineEntry[] = [
     year: "March 2026",
     flag: "\u{1F3C6}",
     title: { en: "RebelBot Launches & Wins", it: "RebelBot Lancia e Vince", es: "RebelBot Lanza y Gana" },
-    location: { en: "UNLV, Las Vegas", it: "UNLV, Las Vegas", es: "UNLV, Las Vegas" },
+    location: { en: "University of Nevada, Las Vegas, Las Vegas", it: "University of Nevada, Las Vegas, Las Vegas", es: "University of Nevada, Las Vegas, Las Vegas" },
     description: {
-      en: "RebelBot officially launched from idea to product in under a year. Won both competitions and entered discussions for UNLV implementation.",
-      it: "RebelBot passa ufficialmente da idea a prodotto in meno di un anno. Ho vinto entrambe le competizioni e avviato le trattative per l'adozione alla UNLV.",
-      es: "RebelBot pasa oficialmente de idea a producto en menos de un año. Gané las dos competiciones e inicié conversaciones para su implementación en la UNLV.",
+      en: "RebelBot officially launched from idea to product in under a year. Won both competitions and entered discussions for University of Nevada, Las Vegas implementation.",
+      it: "RebelBot passa ufficialmente da idea a prodotto in meno di un anno. Ho vinto entrambe le competizioni e avviato le trattative per l'adozione alla University of Nevada, Las Vegas.",
+      es: "RebelBot pasa oficialmente de idea a producto en menos de un año. Gané las dos competiciones e inicié conversaciones para su implementación en la University of Nevada, Las Vegas.",
     },
     highlights: [
       { en: "President's Innovation Challenge Winner", it: "Vincitrice del President's Innovation Challenge", es: "Ganadora del President's Innovation Challenge" },
@@ -171,7 +171,7 @@ export const timelineData: TimelineEntry[] = [
       es: "Me gradúo en diciembre de 2026. Vuelvo a Europa. La aventura continúa.",
     },
     highlights: [
-      { en: "Graduating UNLV Dec 2026", it: "Laurea alla UNLV a dicembre 2026", es: "Graduación en la UNLV en diciembre de 2026" },
+      { en: "Graduating University of Nevada, Las Vegas Dec 2026", it: "Laurea alla University of Nevada, Las Vegas a dicembre 2026", es: "Graduación en la University of Nevada, Las Vegas en diciembre de 2026" },
       { en: "Returning to Europe", it: "Ritorno in Europa", es: "Regreso a Europa" },
       { en: "Open to global opportunities", it: "Aperta a opportunità globali", es: "Abierta a oportunidades globales" },
     ],

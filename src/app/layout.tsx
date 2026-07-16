@@ -5,7 +5,7 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "Veronica Fortuno Seput — International Business & Marketing",
   description:
-    "UNLV International Business & Marketing student, founder of RebelBot, and community builder with a global perspective.",
+    "University of Nevada, Las Vegas International Business & Marketing student, founder of RebelBot, and community builder with a global perspective.",
   openGraph: {
     title: "Veronica Fortuno Seput",
     description:

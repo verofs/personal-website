@@ -25,7 +25,7 @@ export default function TravelGlobe() {
   const [rotation, setRotation] = useState({ phi: 0, theta: 0.3 });
   const [activeMarker, setActiveMarker] = useState<ProjectedMarker | null>(null);
   const [width, setWidth] = useState(500);
-  const { language, t, localize, images } = useTranslation();
+  const { language, t, localize, images, imageFocus } = useTranslation();
 
   const projectedMarkers = useMemo<ProjectedMarker[]>(() => {
     // Replicates cobe's own lat/lng -> screen projection so the clickable
@@ -235,6 +235,7 @@ export default function TravelGlobe() {
         <div className="mt-10 grid grid-cols-2 md:grid-cols-4 gap-3">
           {t.globe.photos[language].map((label, index) => {
             const photo = images[`globe.${index}`];
+            const focus = imageFocus[`globe.${index}`];
             return (
               <div
                 key={`${label}-${index}`}
@@ -244,7 +245,7 @@ export default function TravelGlobe() {
               >
                 {photo ? (
                   // eslint-disable-next-line @next/next/no-img-element
-                  <img src={photo} alt={label} className="h-full w-full object-cover" />
+                  <img src={photo} alt={label} className="h-full w-full object-cover" style={{ objectPosition: focus }} />
                 ) : (
                   `${localize(t.globe.addPhoto)}: ${label}`
                 )}

@@ -14,6 +14,7 @@ const GALLERY_KEY = "content/gallery.json";
 const SITE_CONTENT_KEY = "content/site.json";
 const PUBLIC_DIR = path.join(process.cwd(), "public");
 const LOCAL_DATA_DIR = path.join(PUBLIC_DIR, "data");
+const PUBLIC_DIR_WITH_SEP = `${PUBLIC_DIR}${path.sep}`;
 
 export function hasBlobToken() {
   return Boolean(process.env.BLOB_READ_WRITE_TOKEN);
@@ -114,7 +115,11 @@ export async function writeSiteContent(input: unknown) {
 export async function deleteBlob(urlOrPathname: string) {
   if (!hasBlobToken() && canUseLocalStorage() && urlOrPathname.startsWith("/uploads/")) {
     try {
-      await unlink(path.join(PUBLIC_DIR, urlOrPathname));
+      const target = path.resolve(PUBLIC_DIR, urlOrPathname.replace(/^\/+/, ""));
+      if (!target.startsWith(PUBLIC_DIR_WITH_SEP)) {
+        throw new Error("Invalid file path");
+      }
+      await unlink(target);
     } catch {
       // Missing local files are already deleted from the user's point of view.
     }
@@ -127,8 +132,8 @@ export async function deleteBlob(urlOrPathname: string) {
 
 export async function writeLocalPublicFile(relativePath: string, bytes: Buffer) {
   const safePath = relativePath.replace(/^\/+/, "");
-  const target = path.join(PUBLIC_DIR, safePath);
-  if (!target.startsWith(PUBLIC_DIR)) {
+  const target = path.resolve(PUBLIC_DIR, safePath);
+  if (!target.startsWith(PUBLIC_DIR_WITH_SEP)) {
     throw new Error("Invalid file path");
   }
   await mkdir(path.dirname(target), { recursive: true });

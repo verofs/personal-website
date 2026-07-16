@@ -19,9 +19,9 @@ export const travelLocations: TravelLocation[] = [
     lat: 36.17,
     lng: -115.14,
     description: {
-      en: "Current home base for UNLV, RebelBot, and community-building.",
-      it: "Base attuale per UNLV, RebelBot e community-building.",
-      es: "Mi base actual para la UNLV, RebelBot y la creación de comunidad.",
+      en: "Current home base for University of Nevada, Las Vegas, RebelBot, and community-building.",
+      it: "Base attuale per University of Nevada, Las Vegas, RebelBot e community-building.",
+      es: "Mi base actual para la University of Nevada, Las Vegas, RebelBot y la creación de comunidad.",
     },
     dates: "2020-Present",
     lived: true,

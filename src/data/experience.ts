@@ -117,7 +117,7 @@ export const leadershipRoles: LeadershipRole[] = [
 
 export interface EducationEntry {
   degree: string;
-  detail: LocalizedText;
+  majors: LocalizedText[];
   school: string;
   dates: LocalizedText;
 }
@@ -125,11 +125,18 @@ export interface EducationEntry {
 export const education: EducationEntry[] = [
   {
     degree: "B.S. in Business Administration",
-    detail: {
-      en: "Double Major: International Business & Marketing",
-      it: "Doppia specializzazione: International Business e Marketing",
-      es: "Doble especialización: International Business y Marketing",
-    },
+    majors: [
+      {
+        en: "International Business",
+        it: "Corso di Laurea in International Business",
+        es: "International Business",
+      },
+      {
+        en: "Marketing",
+        it: "Corso di Laurea in Marketing",
+        es: "Marketing",
+      },
+    ],
     school: "University of Nevada, Las Vegas",
     dates: { en: "Expected December 2026", it: "Laurea prevista dicembre 2026", es: "Graduación prevista diciembre 2026" },
   },
@@ -176,7 +183,7 @@ export const awards: AwardEntry[] = [
     detail: { en: "Winner 2026 - RebelBot", it: "Vincitrice 2026 - RebelBot", es: "Ganadora 2026 - RebelBot" },
   },
   {
-    title: "UNLV Research Symposium",
+    title: "University of Nevada, Las Vegas Research Symposium",
     detail: { en: "Recognition - RebelBot student innovation", it: "Riconoscimento - innovazione studentesca RebelBot", es: "Reconocimiento - innovación estudiantil RebelBot" },
   },
   {

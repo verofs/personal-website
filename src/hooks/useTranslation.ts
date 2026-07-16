@@ -4,13 +4,14 @@ import { useLanguage } from "@/context/LanguageContext";
 import { localize } from "@/data/translations";
 
 export function useTranslation() {
-  const { language, setLanguage, translations, sectionOrder, images } = useLanguage();
+  const { language, setLanguage, translations, sectionOrder, images, imageFocus } = useLanguage();
 
   return {
     language,
     setLanguage,
     sectionOrder,
     images,
+    imageFocus,
     t: translations,
     localize: <T extends Record<typeof language, string>>(value: T) =>
       localize(value, language),

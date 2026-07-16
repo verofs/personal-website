@@ -122,14 +122,23 @@ export default function Experience() {
             {localize(t.experience.education)}
           </h3>
           <div className="flex flex-col gap-3">
-            {education.map((edu) => (
-              <div key={edu.degree} className="p-4 rounded-xl glass-card">
-                <div className="font-semibold text-white">{edu.degree}</div>
-                <div className="text-sm text-neon-pink font-medium">{localize(edu.detail)}</div>
-                <div className="text-xs text-white/50 mt-1">{edu.school}</div>
-                <div className="text-xs text-white/40">{localize(edu.dates)}</div>
-              </div>
-            ))}
+            {education.map((edu) =>
+              edu.majors.map((major) => (
+                <div
+                  key={localize(major)}
+                  className="glass-card rounded-xl p-4 flex items-start justify-between gap-4"
+                >
+                  <div>
+                    <div className="font-semibold text-white">{localize(major)}</div>
+                    <div className="text-sm text-neon-pink font-medium">{edu.degree}</div>
+                    <div className="text-xs text-white/50 mt-1">{edu.school}</div>
+                  </div>
+                  <div className="text-xs text-white/40 shrink-0 text-right">
+                    {localize(edu.dates)}
+                  </div>
+                </div>
+              ))
+            )}
           </div>
 
           <h3 className="font-heading text-xl font-bold text-white mt-8 mb-6">

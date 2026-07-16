@@ -15,12 +15,14 @@ export interface SiteContent {
   translations: SiteTranslations;
   sectionOrder: SectionKey[];
   images: Record<string, string>;
+  imageFocus: Record<string, string>;
 }
 
 export const defaultSiteContent: SiteContent = {
   translations: translations as unknown as SiteTranslations,
   sectionOrder: defaultSectionOrder,
   images: {},
+  imageFocus: {},
 };
 
 function isRecord(value: unknown): value is Record<string, unknown> {
@@ -56,11 +58,27 @@ export function normalizeImages(value: unknown): Record<string, string> {
   for (const [key, raw] of Object.entries(value)) {
     if (typeof raw !== "string") continue;
     const url = raw.trim();
-    if (url.startsWith("/uploads/") || url.startsWith("https://") || url.startsWith("http://")) {
+    if (url.startsWith("/uploads/") || url.startsWith("https://")) {
       images[key.slice(0, 80)] = url.slice(0, 400);
     }
   }
   return images;
+}
+
+const FOCUS_PATTERN = /^(\d{1,3})% (\d{1,3})%$/;
+
+export function normalizeImageFocus(value: unknown): Record<string, string> {
+  if (!isRecord(value)) return {};
+  const focus: Record<string, string> = {};
+  for (const [key, raw] of Object.entries(value)) {
+    if (typeof raw !== "string") continue;
+    const match = FOCUS_PATTERN.exec(raw.trim());
+    if (!match) continue;
+    const x = Math.min(100, Number(match[1]));
+    const y = Math.min(100, Number(match[2]));
+    focus[key.slice(0, 80)] = `${x}% ${y}%`;
+  }
+  return focus;
 }
 
 export function normalizeSiteContent(value: unknown): SiteContent {
@@ -69,5 +87,6 @@ export function normalizeSiteContent(value: unknown): SiteContent {
     translations: mergeDeep(translations as unknown as SiteTranslations, record.translations),
     sectionOrder: normalizeSectionOrder(record.sectionOrder),
     images: normalizeImages(record.images),
+    imageFocus: normalizeImageFocus(record.imageFocus),
   };
 }

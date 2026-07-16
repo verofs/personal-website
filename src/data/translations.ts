@@ -38,9 +38,9 @@ export const translations = {
   about: {
     title: { en: "About Me", it: "Chi Sono", es: "Sobre Mí" },
     body: {
-      en: "I'm Veronica - born in Spain, raised between Italy and the U.S., and shaped by moving through different cultures. I study international business and marketing at UNLV, build community through student organizations, and am growing RebelBot one step at a time by listening to real student needs.",
-      it: "Sono Veronica: nata in Spagna, cresciuta tra l'Italia e gli Stati Uniti e plasmata dal passare continuamente da una cultura all'altra. Studio Business Internazionale e Marketing alla UNLV, creo community dentro le associazioni studentesche e faccio crescere RebelBot un passo alla volta, partendo sempre dai bisogni veri degli studenti.",
-      es: "Soy Veronica: nací en España, crecí entre Italia y Estados Unidos y me formé moviéndome de una cultura a otra. Estudio Negocios Internacionales y Marketing en la UNLV, creo comunidad desde las organizaciones estudiantiles y hago crecer RebelBot paso a paso, escuchando lo que de verdad necesitan los estudiantes.",
+      en: "I'm Veronica - born in Spain, raised between Italy and the U.S., and shaped by moving through different cultures. I study international business and marketing at University of Nevada, Las Vegas, build community through student organizations, and am growing RebelBot one step at a time by listening to real student needs.",
+      it: "Sono Veronica: nata in Spagna, cresciuta tra l'Italia e gli Stati Uniti e plasmata dal passare continuamente da una cultura all'altra. Studio Business Internazionale e Marketing alla University of Nevada, Las Vegas, creo community dentro le associazioni studentesche e faccio crescere RebelBot un passo alla volta, partendo sempre dai bisogni veri degli studenti.",
+      es: "Soy Veronica: nací en España, crecí entre Italia y Estados Unidos y me formé moviéndome de una cultura a otra. Estudio Negocios Internacionales y Marketing en la University of Nevada, Las Vegas, creo comunidad desde las organizaciones estudiantiles y hago crecer RebelBot paso a paso, escuchando lo que de verdad necesitan los estudiantes.",
     },
     photo: { en: "Add photo here", it: "Aggiungi una foto", es: "Añade una foto" },
   },
@@ -91,21 +91,21 @@ export const translations = {
     achievements: {
       en: [
         ["President's Innovation Challenge", "Winner 2026"],
-        ["UNLV Research Symposium", "Award Recipient"],
+        ["University of Nevada, Las Vegas Research Symposium", "Award Recipient"],
         ["25+ Discovery Interviews", "NSF I-Corps Method"],
-        ["Live Pilot Users", "At UNLV"],
+        ["Live Pilot Users", "At University of Nevada, Las Vegas"],
       ],
       it: [
         ["President's Innovation Challenge", "Vincitrice 2026"],
-        ["UNLV Research Symposium", "Riconoscimento"],
+        ["University of Nevada, Las Vegas Research Symposium", "Riconoscimento"],
         ["25+ interviste di discovery", "Metodo NSF I-Corps"],
-        ["Utenti pilota attivi", "Alla UNLV"],
+        ["Utenti pilota attivi", "Alla University of Nevada, Las Vegas"],
       ],
       es: [
         ["President's Innovation Challenge", "Ganadora 2026"],
-        ["UNLV Research Symposium", "Reconocimiento"],
+        ["University of Nevada, Las Vegas Research Symposium", "Reconocimiento"],
         ["25+ entrevistas de discovery", "Método NSF I-Corps"],
-        ["Usuarios piloto activos", "En la UNLV"],
+        ["Usuarios piloto activos", "En la University of Nevada, Las Vegas"],
       ],
     },
     eventPhoto: { en: "Add photo: The Exchange Event", it: "Aggiungi foto: evento The Exchange", es: "Añade foto: evento The Exchange" },
@@ -148,6 +148,7 @@ export const translations = {
     instagram: { en: "Instagram", it: "Instagram", es: "Instagram" },
     email: { en: "Email", it: "Email", es: "Email" },
     resume: { en: "Resume", it: "CV", es: "CV" },
+    followLabel: { en: "Connect", it: "Contatti", es: "Contacto" },
   },
   community: {
     title: { en: "Community", it: "Community", es: "Comunidad" },

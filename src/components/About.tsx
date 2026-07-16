@@ -5,7 +5,7 @@ import { useTranslation } from "@/hooks/useTranslation";
 import SectionWrapper from "./SectionWrapper";
 
 export default function About() {
-  const { t, localize, images } = useTranslation();
+  const { t, localize, images, imageFocus } = useTranslation();
   const photo = images.about;
 
   return (
@@ -30,7 +30,7 @@ export default function About() {
       >
         {photo ? (
           // eslint-disable-next-line @next/next/no-img-element
-          <img src={photo} alt={localize(t.about.title)} className="h-full w-full object-cover" />
+          <img src={photo} alt={localize(t.about.title)} className="h-full w-full object-cover" style={{ objectPosition: imageFocus.about }} />
         ) : (
           localize(t.about.photo)
         )}

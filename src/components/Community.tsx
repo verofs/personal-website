@@ -36,7 +36,7 @@ const volunteerWork = [
 ];
 
 export default function Community() {
-  const { language, t, localize, images } = useTranslation();
+  const { language, t, localize, images, imageFocus } = useTranslation();
 
   return (
     <SectionWrapper id="community">
@@ -53,6 +53,7 @@ export default function Community() {
       <div className="grid grid-cols-2 md:grid-cols-3 gap-3 mb-12">
         {t.community.photoLabels[language].map((label, index) => {
           const photo = images[`community.${index}`];
+          const focus = imageFocus[`community.${index}`];
           return (
             <div
               key={`${label}-${index}`}
@@ -62,7 +63,7 @@ export default function Community() {
             >
               {photo ? (
                 // eslint-disable-next-line @next/next/no-img-element
-                <img src={photo} alt={label} className="h-full w-full object-cover" />
+                <img src={photo} alt={label} className="h-full w-full object-cover" style={{ objectPosition: focus }} />
               ) : (
                 `${localize(t.community.addPhoto)}: ${label}`
               )}

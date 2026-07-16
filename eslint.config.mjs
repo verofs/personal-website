@@ -14,6 +14,7 @@ const eslintConfig = defineConfig([
     "next-env.d.ts",
     "output/**",
     "public/**",
+    "build_*.js",
     "build_american.js",
     "build_italian.js",
     "build_nasa_cover_letter.js",
