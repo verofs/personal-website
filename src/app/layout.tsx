@@ -3,13 +3,13 @@ import { LanguageProvider } from "@/context/LanguageContext";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Veronica Fortuno Seput — International Business, Marketing & Startup Founder",
+  title: "Veronica Fortuno Seput — International Business & Marketing",
   description:
-    "Trilingual startup founder, UNLV International Business & Marketing student. Founder of RebelBot. Open to global opportunities.",
+    "UNLV International Business & Marketing student, founder of RebelBot, and community builder with a global perspective.",
   openGraph: {
     title: "Veronica Fortuno Seput",
     description:
-      "International Business & Marketing student, startup founder, and world traveler.",
+      "International Business & Marketing student, RebelBot founder, and community builder.",
     type: "website",
   },
 };
@@ -21,7 +21,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="min-h-screen bg-navy text-white font-sans antialiased">
+      <body className="min-h-screen bg-black text-white font-sans antialiased">
         <LanguageProvider>{children}</LanguageProvider>
       </body>
     </html>

@@ -3,23 +3,28 @@
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { languages, type Language } from "@/data/translations";
+import type { SectionKey } from "@/data/sectionOrder";
 import { useTranslation } from "@/hooks/useTranslation";
 
-const links = [
-  { href: "#home", key: "home" },
-  { href: "#about", key: "about" },
-  { href: "#journey", key: "journey" },
-  { href: "#rebelbot", key: "rebelbot" },
-  { href: "#experience", key: "experience" },
-  { href: "#languages", key: "languages" },
-  { href: "#globe", key: "travel" },
-  { href: "#community", key: "community" },
-] as const;
+const navBySection: Partial<Record<SectionKey, { href: string; key: keyof typeof import("@/data/translations").translations.nav }>> = {
+  hero: { href: "#home", key: "home" },
+  about: { href: "#about", key: "about" },
+  timeline: { href: "#journey", key: "journey" },
+  rebelbot: { href: "#rebelbot", key: "rebelbot" },
+  experience: { href: "#experience", key: "experience" },
+  languages: { href: "#languages", key: "languages" },
+  globe: { href: "#globe", key: "travel" },
+  community: { href: "#community", key: "community" },
+};
 
 export default function Navigation() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
-  const { language, setLanguage, t, localize } = useTranslation();
+  const { language, setLanguage, sectionOrder, t, localize } = useTranslation();
+  const links = sectionOrder.flatMap((section) => {
+    const link = navBySection[section];
+    return link ? [link] : [];
+  });
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
@@ -34,7 +39,7 @@ export default function Navigation() {
         animate={{ y: 0 }}
         transition={{ duration: 0.6 }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          scrolled ? "bg-navy/90 backdrop-blur-md shadow-lg" : "bg-transparent"
+          scrolled ? "bg-black/82 backdrop-blur-md border-b border-white/10" : "bg-transparent"
         }`}
       >
         <div className="mx-auto max-w-6xl flex items-center justify-between gap-4 px-6 py-4">
@@ -42,12 +47,12 @@ export default function Navigation() {
             VFS
           </a>
 
-          <div className="hidden md:flex items-center gap-5">
+          <div className="hidden md:flex items-center gap-4">
             {links.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
-                className="text-sm text-white/70 hover:text-white transition-colors"
+                className="text-sm text-white/70 hover:text-neon-cyan focus-visible:outline focus-visible:outline-2 focus-visible:outline-neon-cyan transition-colors"
               >
                 {localize(t.nav[link.key])}
               </a>
@@ -59,7 +64,7 @@ export default function Navigation() {
             <select
               value={language}
               onChange={(event) => setLanguage(event.target.value as Language)}
-              className="rounded-full border border-white/20 bg-navy/80 px-3 py-1.5 text-sm text-white outline-none"
+              className="rounded-full border border-white/20 bg-black/80 px-3 py-1.5 text-sm text-white outline-none focus:border-neon-cyan"
             >
               {languages.map((option) => (
                 <option key={option.code} value={option.code}>
@@ -71,7 +76,7 @@ export default function Navigation() {
 
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
-            className="md:hidden text-white/70 hover:text-white"
+            className="md:hidden text-white/70 hover:text-neon-cyan"
             aria-label={localize(t.nav.menu)}
           >
             <svg
@@ -98,7 +103,7 @@ export default function Navigation() {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="fixed inset-0 z-40 bg-navy/95 backdrop-blur-md pt-20 px-6 md:hidden"
+            className="fixed inset-0 z-40 bg-black/95 backdrop-blur-md pt-20 px-6 md:hidden"
           >
             <div className="flex flex-col gap-6">
               {links.map((link) => (
@@ -106,7 +111,7 @@ export default function Navigation() {
                   key={link.href}
                   href={link.href}
                   onClick={() => setMobileOpen(false)}
-                  className="text-xl text-white/80 hover:text-white font-heading"
+                  className="text-xl text-white/80 hover:text-neon-cyan font-heading"
                 >
                   {localize(t.nav[link.key])}
                 </a>
@@ -116,7 +121,7 @@ export default function Navigation() {
                 <select
                   value={language}
                   onChange={(event) => setLanguage(event.target.value as Language)}
-                  className="rounded-full border border-white/20 bg-navy px-4 py-3 text-base text-white outline-none"
+                  className="rounded-full border border-white/20 bg-black px-4 py-3 text-base text-white outline-none"
                 >
                   {languages.map((option) => (
                     <option key={option.code} value={option.code}>

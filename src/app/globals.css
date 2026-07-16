@@ -2,18 +2,29 @@
 
 @theme {
   --font-sans: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  --font-heading: "Space Grotesk", Inter, ui-sans-serif, system-ui, sans-serif;
-  --font-accent: "Playfair Display", Georgia, Cambria, "Times New Roman", serif;
+  --font-heading: "Cormorant Garamond", Georgia, Cambria, "Times New Roman", serif;
+  --font-accent: "Cormorant Garamond", Georgia, Cambria, "Times New Roman", serif;
 
-  --color-cream: #FFF7ED;
-  --color-navy: #0F172A;
-  --color-navy-light: #1E293B;
-  --color-charcoal: #1A1A1A;
-  --color-coral: #FF7E67;
-  --color-pink: #FF6B9D;
-  --color-purple: #C084FC;
-  --color-indigo: #818CF8;
-  --color-sky: #38BDF8;
+  --color-black: #000000;
+  --color-black-card: #101014;
+  --color-ink: #09090b;
+  --color-steel: #a1a1aa;
+  --color-white: #ffffff;
+  --color-neon-pink: #ff10f0;
+  --color-neon-cyan: #00fff0;
+  --color-neon-purple: #bf00ff;
+  --color-neon-blue: #4d4dff;
+  --color-neon-green: #39ff14;
+
+  --color-cream: #fff7ed;
+  --color-navy: #020207;
+  --color-navy-light: #101014;
+  --color-charcoal: #f4f4f5;
+  --color-coral: #ff10f0;
+  --color-pink: #ff10f0;
+  --color-purple: #bf00ff;
+  --color-indigo: #4d4dff;
+  --color-sky: #00fff0;
 }
 
 @layer base {
@@ -24,29 +35,75 @@
   body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    background: #000;
   }
 
   ::selection {
-    background-color: rgba(192, 132, 252, 0.3);
+    background-color: rgba(255, 16, 240, 0.32);
   }
 }
 
 @layer utilities {
   .gradient-text {
-    background: linear-gradient(135deg, #FF6B9D, #C084FC, #818CF8, #38BDF8);
+    background: linear-gradient(135deg, #ff10f0, #bf00ff, #4d4dff, #00fff0);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
 
   .gradient-bg {
-    background: linear-gradient(135deg, #FF6B9D, #C084FC, #818CF8, #38BDF8);
+    background: linear-gradient(135deg, #ff10f0, #bf00ff, #4d4dff, #00fff0);
   }
 
   .gradient-bg-animated {
-    background: linear-gradient(270deg, #FF6B9D, #C084FC, #818CF8, #38BDF8, #FF6B9D);
+    background: linear-gradient(270deg, #ff10f0, #bf00ff, #4d4dff, #00fff0, #ff10f0);
     background-size: 300% 300%;
     animation: gradient-shift 8s ease infinite;
+  }
+
+  .glass-card {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.035));
+    border: 1px solid rgba(255, 255, 255, 0.13);
+    box-shadow: 0 20px 70px rgba(0, 0, 0, 0.36);
+    backdrop-filter: blur(18px);
+  }
+
+  .neon-border {
+    border: 1px solid rgba(0, 255, 240, 0.34);
+    box-shadow: 0 0 22px rgba(0, 255, 240, 0.14);
+  }
+
+  .neon-text {
+    color: #fff;
+    text-shadow: 0 0 10px rgba(255, 16, 240, 0.55), 0 0 26px rgba(191, 0, 255, 0.34);
+  }
+
+  .neon-glow-pink {
+    box-shadow: 0 0 22px rgba(255, 16, 240, 0.22), 0 0 55px rgba(255, 16, 240, 0.08);
+  }
+
+  .neon-glow-cyan {
+    box-shadow: 0 0 22px rgba(0, 255, 240, 0.2), 0 0 55px rgba(0, 255, 240, 0.08);
+  }
+
+  .neon-hover-pink {
+    transition: border-color 200ms ease, box-shadow 200ms ease, transform 200ms ease;
+  }
+
+  .neon-hover-pink:hover {
+    border-color: rgba(255, 16, 240, 0.55);
+    box-shadow: 0 0 24px rgba(255, 16, 240, 0.18);
+    transform: translateY(-2px);
+  }
+
+  .neon-hover-cyan {
+    transition: border-color 200ms ease, box-shadow 200ms ease, transform 200ms ease;
+  }
+
+  .neon-hover-cyan:hover {
+    border-color: rgba(0, 255, 240, 0.5);
+    box-shadow: 0 0 24px rgba(0, 255, 240, 0.16);
+    transform: translateY(-2px);
   }
 }
 
@@ -59,4 +116,35 @@
 @keyframes float {
   0%, 100% { transform: translateY(0px); }
   50% { transform: translateY(-10px); }
+}
+
+@keyframes float-slow {
+  0%, 100% { transform: translate3d(0, 0, 0); }
+  50% { transform: translate3d(0, -14px, 0); }
+}
+
+@keyframes neon-pulse {
+  0%, 100% { opacity: 0.85; filter: drop-shadow(0 0 8px rgba(255, 16, 240, 0.45)); }
+  50% { opacity: 1; filter: drop-shadow(0 0 18px rgba(0, 255, 240, 0.34)); }
+}
+
+@keyframes text-reveal {
+  from { clip-path: inset(0 100% 0 0); }
+  to { clip-path: inset(0 0 0 0); }
+}
+
+@keyframes name-shimmer {
+  0% { background-position: -150% 50%; }
+  100% { background-position: 150% 50%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.001ms !important;
+  }
 }

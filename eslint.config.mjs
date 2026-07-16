@@ -16,6 +16,8 @@ const eslintConfig = defineConfig([
     "public/**",
     "build_american.js",
     "build_italian.js",
+    "build_nasa_cover_letter.js",
+    "build_nasa_resume.js",
     "build_spanish.js",
     "convert_to_pdf.scpt",
   ]),

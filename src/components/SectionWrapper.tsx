@@ -14,14 +14,11 @@ export default function SectionWrapper({
   children,
   id,
   className = "",
-  dark = false,
 }: SectionWrapperProps) {
   return (
     <section
       id={id}
-      className={`relative px-6 py-20 md:py-28 overflow-hidden ${
-        dark ? "bg-navy text-white" : "bg-cream text-charcoal"
-      } ${className}`}
+      className={`relative px-6 py-20 md:py-28 overflow-hidden bg-black text-white ${className}`}
     >
       <motion.div
         initial={{ opacity: 0, y: 40 }}

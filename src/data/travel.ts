@@ -1,13 +1,31 @@
+import type { LocalizedText } from "./translations";
+
 export interface TravelLocation {
   name: string;
   country: string;
   lat: number;
   lng: number;
+  description?: LocalizedText;
+  dates?: string;
+  photo?: string;
+  lived?: boolean;
 }
 
 export const travelLocations: TravelLocation[] = [
   // USA
-  { name: "Las Vegas", country: "USA", lat: 36.17, lng: -115.14 },
+  {
+    name: "Las Vegas",
+    country: "USA",
+    lat: 36.17,
+    lng: -115.14,
+    description: {
+      en: "Current home base for UNLV, RebelBot, and community-building.",
+      it: "Base attuale per UNLV, RebelBot e community-building.",
+      es: "Mi base actual para la UNLV, RebelBot y la creación de comunidad.",
+    },
+    dates: "2020-Present",
+    lived: true,
+  },
   { name: "San Francisco", country: "USA", lat: 37.77, lng: -122.42 },
   { name: "Los Angeles", country: "USA", lat: 34.05, lng: -118.24 },
   { name: "San Diego", country: "USA", lat: 32.72, lng: -117.16 },
@@ -30,11 +48,33 @@ export const travelLocations: TravelLocation[] = [
   { name: "Vancouver", country: "Canada", lat: 49.28, lng: -123.12 },
 
   // Spain
-  { name: "Valencia", country: "Spain", lat: 39.47, lng: -0.38 },
+  {
+    name: "Valencia",
+    country: "Spain",
+    lat: 39.47,
+    lng: -0.38,
+    description: {
+      en: "Birthplace and Spanish roots.",
+      it: "Luogo di nascita e radici spagnole.",
+      es: "Mi lugar de nacimiento y mis raíces españolas.",
+    },
+    lived: true,
+  },
   { name: "Madrid", country: "Spain", lat: 40.42, lng: -3.7 },
 
   // Italy
-  { name: "Rome", country: "Italy", lat: 41.9, lng: 12.5 },
+  {
+    name: "Rome",
+    country: "Italy",
+    lat: 41.9,
+    lng: 12.5,
+    description: {
+      en: "A formative chapter in an international school environment.",
+      it: "Un capitolo formativo in un ambiente scolastico internazionale.",
+      es: "Una etapa que me formó, en un entorno escolar internacional.",
+    },
+    lived: true,
+  },
   { name: "Naples", country: "Italy", lat: 40.85, lng: 14.27 },
   { name: "Gallipoli", country: "Italy", lat: 40.06, lng: 17.99 },
 

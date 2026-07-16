@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 620" role="img" aria-label="Valencia roots">
+  <defs><linearGradient id="g" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#ff10f0"/><stop offset=".45" stop-color="#4d4dff"/><stop offset="1" stop-color="#00fff0"/></linearGradient></defs>
+  <rect width="900" height="620" fill="#050507"/>
+  <circle cx="710" cy="140" r="110" fill="url(#g)" opacity=".75"/>
+  <path d="M0 420c170-130 320-120 470-30 145 86 292 63 430-60v290H0z" fill="#111827"/>
+  <path d="M0 478c210-78 338-68 518-11 166 53 252 25 382-52v205H0z" fill="#0b0b12"/>
+  <text x="56" y="112" fill="#fff" font-family="Inter,Arial" font-size="54" font-weight="700">Valencia</text>
+</svg>

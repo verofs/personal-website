@@ -36,7 +36,7 @@ const volunteerWork = [
 ];
 
 export default function Community() {
-  const { language, t, localize } = useTranslation();
+  const { language, t, localize, images } = useTranslation();
 
   return (
     <SectionWrapper id="community">
@@ -44,26 +44,36 @@ export default function Community() {
         <h2 className="font-heading text-3xl md:text-5xl font-bold gradient-text mb-4">
           {localize(t.community.title)}
         </h2>
-        <p className="text-charcoal/60 text-lg max-w-2xl mx-auto">
+        <p className="text-white/58 text-lg max-w-2xl mx-auto">
           {localize(t.community.intro)}
         </p>
       </div>
 
-      {/* Photo grid placeholder */}
+      {/* Photo grid */}
       <div className="grid grid-cols-2 md:grid-cols-3 gap-3 mb-12">
-        {t.community.photoLabels[language].map((label) => (
-          <div
-            key={label}
-            className="h-40 md:h-48 rounded-xl border-2 border-dashed border-pink/20 flex items-center justify-center text-charcoal/30 text-sm text-center px-2 bg-white"
-          >
-            {localize(t.community.addPhoto)}: {label}
-          </div>
-        ))}
+        {t.community.photoLabels[language].map((label, index) => {
+          const photo = images[`community.${index}`];
+          return (
+            <div
+              key={`${label}-${index}`}
+              className={`h-40 md:h-48 overflow-hidden rounded-xl flex items-center justify-center text-white/30 text-sm text-center px-2 ${
+                photo ? "border border-neon-pink/30" : "border-2 border-dashed border-neon-pink/25 bg-white/5"
+              }`}
+            >
+              {photo ? (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img src={photo} alt={label} className="h-full w-full object-cover" />
+              ) : (
+                `${localize(t.community.addPhoto)}: ${label}`
+              )}
+            </div>
+          );
+        })}
       </div>
 
       {/* Volunteer work */}
       <div>
-        <h3 className="font-heading text-xl font-bold text-charcoal mb-6 text-center">
+        <h3 className="font-heading text-xl font-bold text-white mb-6 text-center">
           {localize(t.community.volunteerTitle)}
         </h3>
         <div className="grid md:grid-cols-3 gap-4 max-w-3xl mx-auto">
@@ -74,12 +84,12 @@ export default function Community() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              className="p-5 rounded-xl bg-white border border-pink/10 shadow-sm"
+              className="p-5 rounded-xl glass-card neon-hover-cyan"
             >
-              <h4 className="font-semibold text-sm text-charcoal mb-2">
+              <h4 className="font-semibold text-sm text-white mb-2">
                 {localize(v.name)}
               </h4>
-              <p className="text-xs text-charcoal/60">{localize(v.description)}</p>
+              <p className="text-xs text-white/62">{localize(v.description)}</p>
             </motion.div>
           ))}
         </div>
