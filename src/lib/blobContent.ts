@@ -4,6 +4,10 @@ import path from "path";
 import { defaultContact, type ContactData } from "@/data/contact";
 import { defaultGalleryPhotos, type GalleryPhoto } from "@/data/gallery";
 import { defaultSiteContent, normalizeSiteContent, type SiteContent } from "@/data/siteContent";
+// Snapshot committed from the local CMS. Used as the read fallback in
+// production (no Blob store), so the deployed site shows the saved copy
+// and uploaded photos instead of empty defaults.
+import committedSiteContent from "../../public/data/site.json";
 
 const CONTACT_KEY = "content/contact.json";
 const GALLERY_KEY = "content/gallery.json";
@@ -96,7 +100,8 @@ export async function writeGallery(photos: GalleryPhoto[]) {
 }
 
 export async function readSiteContent() {
-  const content = await readJson<SiteContent>(SITE_CONTENT_KEY, defaultSiteContent);
+  const fallback = normalizeSiteContent(committedSiteContent) ?? defaultSiteContent;
+  const content = await readJson<SiteContent>(SITE_CONTENT_KEY, fallback);
   return normalizeSiteContent(content);
 }
 
