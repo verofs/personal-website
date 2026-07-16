@@ -35,12 +35,12 @@ export const timelineData: TimelineEntry[] = [
     title: { en: "Rome Years", it: "Gli Anni a Roma", es: "Los Años en Roma" },
     location: { en: "Rome, Italy", it: "Roma, Italia", es: "Roma, Italia" },
     description: {
-      en: "Moved to Rome and attended an international school with the Cambridge program. A global mindset took root.",
-      it: "Mi sono trasferita a Roma e ho frequentato una scuola internazionale con il programma Cambridge. È lì che ho preso una mentalità aperta al mondo.",
-      es: "Me mudé a Roma y estudié en un colegio internacional con el programa Cambridge. Ahí eché raíces con una mentalidad abierta al mundo.",
+      en: "Moved to Rome and attended a Liceo Scientifico – Scienze Applicate with the Cambridge program. A global mindset took root.",
+      it: "Mi sono trasferita a Roma e ho frequentato il Liceo Scientifico – Scienze Applicate Cambridge. È lì che ho preso una mentalità aperta al mondo.",
+      es: "Me mudé a Roma y estudié en un Liceo Scientifico – Scienze Applicate con el programa Cambridge. Ahí eché raíces con una mentalidad abierta al mundo.",
     },
     highlights: [
-      { en: "International school education", it: "Scuola internazionale", es: "Colegio internacional" },
+      { en: "Liceo Scientifico – Scienze Applicate", it: "Liceo Scientifico – Scienze Applicate", es: "Liceo Scientifico – Scienze Applicate" },
       { en: "Cambridge academic program", it: "Programma Cambridge", es: "Programa Cambridge" },
       { en: "Multilingual environment", it: "Ambiente multilingue", es: "Entorno multilingüe" },
     ],
