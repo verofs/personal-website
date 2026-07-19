@@ -149,6 +149,11 @@ export const translations = {
     email: { en: "Email", it: "Email", es: "Email" },
     resume: { en: "Resume", it: "CV", es: "CV" },
     followLabel: { en: "Connect", it: "Contatti", es: "Contacto" },
+    resumeMenuTitle: { en: "Choose a format", it: "Scegli un formato", es: "Elige un formato" },
+    resumeAmerican: { en: "American resume", it: "CV americano", es: "Currículum americano" },
+    resumeEuropean: { en: "European resume (English)", it: "CV europeo (inglese)", es: "CV europeo (inglés)" },
+    resumeItalian: { en: "Italian resume", it: "CV italiano", es: "CV italiano" },
+    resumeSpanish: { en: "Spanish resume", it: "CV spagnolo", es: "CV español" },
   },
   community: {
     title: { en: "Community", it: "Community", es: "Comunidad" },

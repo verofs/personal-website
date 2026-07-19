@@ -38,6 +38,11 @@ export default function Timeline() {
               index={index}
               expanded={expandedId === entry.id}
               onToggle={() => setExpandedId((current) => (current === entry.id ? "" : entry.id))}
+              onExpand={() => {
+                if (window.matchMedia?.("(hover: hover)").matches) {
+                  setExpandedId(entry.id);
+                }
+              }}
             />
           ))}
         </div>

@@ -9,6 +9,7 @@ interface TimelineMilestoneProps {
   index: number;
   expanded: boolean;
   onToggle: () => void;
+  onExpand: () => void;
 }
 
 const accents = [
@@ -23,6 +24,7 @@ export default function TimelineMilestone({
   index,
   expanded,
   onToggle,
+  onExpand,
 }: TimelineMilestoneProps) {
   const { localize, images, imageFocus } = useTranslation();
   const photo = images[`timeline.${entry.id}`];
@@ -38,7 +40,7 @@ export default function TimelineMilestone({
       transition={{ duration: 0.45, delay: Math.min(index * 0.05, 0.25) }}
       className={`relative md:grid md:grid-cols-2 ${index % 2 === 0 ? "" : ""}`}
     >
-      <div className={`${side}`}>
+      <div className={`${side}`} onMouseEnter={onExpand}>
         <button
           type="button"
           onClick={onToggle}

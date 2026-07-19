@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { defaultContact } from "@/data/contact";
 import type { ContactData } from "@/data/contact";
 import { useTranslation } from "@/hooks/useTranslation";
+import ResumeMenu from "./ResumeMenu";
 
 const iconProps = {
   width: 20,
@@ -63,11 +64,12 @@ export default function SocialSidebar() {
     ...(contact.github
       ? [{ key: "github", href: contact.github, label: localize(t.social.github), icon: icons.github, external: true }]
       : []),
-    { key: "whatsapp", href: contact.whatsapp, label: localize(t.social.whatsapp), icon: icons.whatsapp, external: true },
     { key: "instagram", href: contact.instagram, label: localize(t.social.instagram), icon: icons.instagram, external: true },
     { key: "email", href: `mailto:${contact.email}`, label: localize(t.social.email), icon: icons.email, external: false },
-    { key: "resume", href: contact.resumeUrl, label: localize(t.social.resume), icon: icons.resume, external: false, download: true },
   ];
+
+  const linkClass =
+    "group flex h-10 items-center gap-2 overflow-hidden rounded-lg border border-white/10 bg-white/5 pl-2.5 pr-2.5 text-white/75 transition-all hover:border-neon-cyan/50 hover:text-white hover:shadow-[0_0_18px_rgba(0,255,240,0.18)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-neon-cyan md:pr-0 md:hover:pr-3";
 
   return (
     <motion.aside
@@ -87,16 +89,27 @@ export default function SocialSidebar() {
             href={link.href}
             target={link.external ? "_blank" : undefined}
             rel={link.external ? "noopener noreferrer" : undefined}
-            download={link.download}
             aria-label={link.label}
-            className="group flex h-10 items-center gap-2 overflow-hidden rounded-lg border border-white/10 bg-white/5 pl-2.5 pr-2.5 text-white/75 transition-all hover:border-neon-cyan/50 hover:text-white hover:shadow-[0_0_18px_rgba(0,255,240,0.18)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-neon-cyan md:pr-0 md:hover:pr-3"
+            className={linkClass}
           >
             <span className="grid w-5 shrink-0 place-items-center">{link.icon}</span>
-            <span className="whitespace-nowrap text-sm font-medium md:max-w-0 md:opacity-0 md:transition-all md:duration-300 md:group-hover:max-w-[140px] md:group-hover:opacity-100">
+            <span className="max-w-0 overflow-hidden whitespace-nowrap text-sm font-medium opacity-0 transition-all duration-300 md:group-hover:max-w-[140px] md:group-hover:opacity-100">
               {link.label}
             </span>
           </a>
         ))}
+
+        <ResumeMenu
+          placement="top"
+          align="end"
+          triggerClassName={linkClass}
+          triggerLabel={localize(t.social.resume)}
+        >
+          <span className="grid w-5 shrink-0 place-items-center">{icons.resume}</span>
+          <span className="whitespace-nowrap text-sm font-medium md:max-w-0 md:opacity-0 md:transition-all md:duration-300 md:group-hover:max-w-[140px] md:group-hover:opacity-100">
+            {localize(t.social.resume)}
+          </span>
+        </ResumeMenu>
       </div>
     </motion.aside>
   );

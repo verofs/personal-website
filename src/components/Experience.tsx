@@ -29,6 +29,11 @@ export default function Experience() {
             {workExperience.map((job, i) => (
               <div
                 key={job.company}
+                onMouseEnter={() => {
+                  if (window.matchMedia?.("(hover: hover)").matches) {
+                    setExpandedIndex(i);
+                  }
+                }}
                 className="glass-card neon-hover-pink rounded-xl overflow-hidden"
               >
                 <button

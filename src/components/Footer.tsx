@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { defaultContact, type ContactData } from "@/data/contact";
 import { useTranslation } from "@/hooks/useTranslation";
+import ResumeMenu from "./ResumeMenu";
 
 export default function Footer() {
   const [contact, setContact] = useState<ContactData>(defaultContact);
@@ -58,21 +59,14 @@ export default function Footer() {
           </a>
 
           {/* Resume */}
-          <a
-            href={contact.resumeUrl}
-            download
-            className="px-6 py-3 rounded-full border border-white/20 text-white/80 font-semibold text-sm hover:border-white/50 hover:text-white transition-all"
+          <ResumeMenu
+            placement="top"
+            align="center"
+            triggerLabel={localize(t.footer.resume)}
+            triggerClassName="px-6 py-3 rounded-full border border-white/20 text-white/80 font-semibold text-sm hover:border-white/50 hover:text-white transition-all"
           >
             {localize(t.footer.resume)}
-          </a>
-          <a
-            href={contact.whatsapp}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="px-6 py-3 rounded-full border border-white/20 text-white/80 font-semibold text-sm hover:border-neon-green/60 hover:text-white transition-all"
-          >
-            WhatsApp
-          </a>
+          </ResumeMenu>
           <a
             href={contact.instagram}
             target="_blank"
